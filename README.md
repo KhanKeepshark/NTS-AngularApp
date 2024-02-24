@@ -1,3 +1,4 @@
+```
 // Можно упростить код, заменив цикл на map. Это сделает код более читаемым и понятным.
 function processLargeData(data) {
     return data.map(performComplexCalculation);
@@ -15,3 +16,4 @@ function performComplexCalculation(item) {
     memo[item] = result;
     return result;
 }
+```
