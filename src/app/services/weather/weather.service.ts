@@ -13,7 +13,7 @@ export class WeatherService {
 
   getWeather(city: string): Observable<IWeatherResponce> {
     return this.http.get<IWeatherResponce>(
-      `http://api.weatherapi.com/v1/current.json?key=${this.API_KEY}&q=${city}`
+      `https://api.weatherapi.com/v1/current.json?key=${this.API_KEY}&q=${city}`
     );
   }
 }
