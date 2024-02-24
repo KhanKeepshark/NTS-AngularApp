@@ -1,0 +1,22 @@
+<div class="page">
+  <div class="title">
+    <fa-icon class="icon" [icon]="FaChevronLeft" (click)="changeMonth(-1)" />
+    <div>
+      {{ currentDate.currentMonth | monthName }}, {{ currentDate.currentYear }}
+    </div>
+    <fa-icon class="icon" [icon]="FaChevronRight" (click)="changeMonth(1)" />
+  </div>
+  <div class="wrap">
+    <div *ngFor="let weekday of weekDays">{{ weekday }}</div>
+    <div
+      class="day-item"
+      [class]="checkToday(item)"
+      *ngFor="let item of currentDate.monthDays"
+      tabindex="0"
+      (click)="item && modalService.open(currentDate, item)"
+      (keypress)="item && modalService.open(currentDate, item)">
+      {{ item }}
+    </div>
+  </div>
+  <app-modal *ngIf="modalService.isVisible$ | async" />
+</div>

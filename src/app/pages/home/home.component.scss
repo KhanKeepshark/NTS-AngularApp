@@ -1,0 +1,29 @@
+@import '../../../styles/mediaMixins.scss';
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.home__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.btn-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 1rem;
+    @include desktopMedia {
+        flex-direction: initial;
+    }
+}
+
+.btn {
+    background-color: red;
+}

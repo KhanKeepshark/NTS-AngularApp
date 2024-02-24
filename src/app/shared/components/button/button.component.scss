@@ -1,0 +1,34 @@
+@mixin btn-size($size) {
+   padding: $size * 0.5;
+   border-radius: $size * 0.75;
+   font-size: $size;
+}
+
+.btn {
+   cursor: pointer;
+   background-color: var(--primary-color);
+   color: var(--text-color);
+   margin-bottom: 4px;
+   width: 100%;
+   &.xs {
+       @include btn-size(12px);
+   }
+   &.sm {
+       @include btn-size(16px);
+   }
+    &.md {
+        @include btn-size(20px);
+    }
+    &.lg {
+        @include btn-size(24px);
+    }
+    &.danger {
+        background-color: var(--danger-color);
+    }
+   &:hover {
+       transform: scale(1.05);
+   }
+   &:active {
+       background-color: var(--secondary-color);
+   }
+}

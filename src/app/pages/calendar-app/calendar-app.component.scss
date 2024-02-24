@@ -1,0 +1,88 @@
+@import '../../../styles/mediaMixins.scss';
+%clickable {
+    &:hover {
+        cursor: pointer;
+        background-color: var(--secondary-color);
+        color: white;
+    }
+    &:active {
+        background-color: var(--primary-color);
+        color: white;
+    }
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    user-select: none;
+
+    .title {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        justify-content: space-between;
+        width: 280px;
+
+        .icon {
+            border-radius: 50%;
+            padding: 8px 12px;
+            @extend %clickable;
+        }
+    }
+
+    .wrap {
+        display: grid;
+        grid-template-columns: repeat(7, 25px);
+        gap: 15px;
+        font-size: 16px;
+        margin-top: 36px;
+
+        .day-item {
+            padding: 6px;
+            height: 16px;
+            width: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            position: relative;
+            &.today {
+                background-color: var(--secondary-color);
+                color: white;
+                &:active {
+                    background-color: var(--primary-color);
+                }
+            }
+            @extend %clickable;
+            &.has-todos {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -4px;
+                    height: 2px;
+                    width: 50%;
+                    background-color: var(--primary-color);
+                    border-radius: 25px;
+                }
+            }
+        }
+    }
+    @include desktopMedia {
+        .title {
+            font-size: 24px;
+            width: 320px;
+        }
+        .wrap {
+            grid-template-columns: repeat(7, 40px);
+            font-size: 20px;
+            .day-item {
+                padding: 8px;
+                height: 24px;
+                width: 24px;
+            }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+.modal-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+}
+
+.modal {
+    position: absolute;
+    z-index: 100;
+    top: 200px;
+    left: calc(50% - 145px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+        width: 250px;
+        height: fit-content;
+        background: white;
+        border-radius: 25px;
+        padding: 20px;
+        font-size: 16px!important;
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .add {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            .text {
+                height: 16px;
+                padding: 8px 12px;
+                border-radius: 10px;
+                width: 60%;
+            }
+        }
+
+        .todo-list {
+            border: 1px solid black;
+            margin-top: 10px;
+            height: 240px;
+            border-radius: 5px;
+            overflow-y: scroll;
+
+            .item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 4px 12px;
+                border-bottom: 1px solid black;
+                .item-text {
+                    width: 70%;
+                    word-wrap: break-word;
+                    overflow-y: scroll;
+                    height: 50px;
+
+                }
+            }
+        }
+    }
+}

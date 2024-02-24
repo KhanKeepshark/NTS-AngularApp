@@ -1,0 +1,28 @@
+<div
+  (click)="ModalService.close()"
+  tabindex="0"
+  (keypress)="ModalService.close()"
+  class="modal-bg"></div>
+<div tabindex="0" class="modal">
+  <div class="card">
+    <div class="title">{{ chosenDate | date: 'EEEE, MMMM d' }}</div>
+    <form class="add" [formGroup]="form" (ngSubmit)="addTodo()">
+      <input class="text" formControlName="todoText" />
+      <app-button buttonSize="sm">{{ isEdit ? 'EDIT' : 'ADD' }}</app-button>
+    </form>
+    <div class="todo-list">
+      <div class="item" *ngFor="let todo of todos">
+        <div class="item-text">{{ todo.text }}</div>
+        <app-button buttonSize="xs" (click)="editTodo(todo.id)">
+          <fa-icon [icon]="FaEdit" />
+        </app-button>
+        <app-button
+          buttonSize="xs"
+          [danger]="true"
+          (click)="deleteTodo(todo.id)">
+          <fa-icon [icon]="FaTrash" />
+        </app-button>
+      </div>
+    </div>
+  </div>
+</div>

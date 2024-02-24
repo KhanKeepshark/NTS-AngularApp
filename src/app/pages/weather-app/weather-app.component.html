@@ -1,0 +1,42 @@
+<div class="screen-wrap">
+  <div class="card">
+    <div>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="search">
+          <input class="search-input" formControlName="cityName" />
+          <app-button buttonSize="sm">
+            <fa-icon [icon]="FaMagnifyingGlass" />
+          </app-button>
+        </div>
+      </form>
+      <div class="favorite">
+        <app-select
+          class="fav-select"
+          (chooseFavorite)="chooseFavorite($event)" />
+        <app-button
+          buttonSize="sm"
+          [danger]="isFavorite"
+          (click)="addToFavorites()">
+          <fa-icon [icon]="FaStar" />
+        </app-button>
+      </div>
+    </div>
+    <div class="content" *ngIf="weatherData">
+      <div class="city">{{ weatherData.city }}</div>
+      <div class="temperature">
+        <img src="{{ weatherData.imgUrl }}" alt="" />
+        <div>{{ weatherData.temperature }}</div>
+      </div>
+      <div class="indicators">
+        <div class="indicator">
+          <img src="../../../assets/img/vento.png" alt="" />
+          <div>{{ weatherData.wind }}km/h</div>
+        </div>
+        <div class="indicator">
+          <img src="../../../assets/img/umidade.png" alt="" />
+          <div>{{ weatherData.humidity }}%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

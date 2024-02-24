@@ -1,0 +1,8 @@
+<form [formGroup]="selectedCity">
+  <select class="select" formControlName="cityData" (change)="onSelect()">
+    <option disabled selected value>Choose fav city</option>
+    <option *ngFor="let fav of favorites">
+      {{ fav.city }}
+    </option>
+  </select>
+</form>
