@@ -29,9 +29,7 @@ export class ModalComponent {
   });
   isEdit: number | null = null;
 
-  constructor(public ModalService: ModalService) {
-    console.log(this.todos);
-  }
+  constructor(public ModalService: ModalService) {}
 
   addTodo(): void {
     if (this.form.value.todoText) {

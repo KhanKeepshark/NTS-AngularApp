@@ -49,7 +49,6 @@ export class WeatherAppComponent implements OnInit {
         wind: data.current.wind_kph,
         humidity: data.current.humidity
       };
-      console.log(this.weatherData);
       this.isFavorite = this.checkIfFavorite();
       this.select?.refreshSelect();
     });
